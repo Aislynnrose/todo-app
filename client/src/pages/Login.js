@@ -31,7 +31,7 @@ const Login = (props) => {
       // {
       //       login: {
       //         token: 'aislynn.rose@gmail.com',
-      //          _id: 'aislynnrose',
+      //          _id: '1',
       //           name: 'aislynn'
       //       }
       // }
@@ -43,6 +43,7 @@ const Login = (props) => {
 
     // clear form values
     setFormState({
+      name: '',
       email: '',
       password: '',
     });
@@ -57,7 +58,7 @@ const Login = (props) => {
             {data ? (
               <p>
                 Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
+                <Link to="/dashboard">to your todos.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
