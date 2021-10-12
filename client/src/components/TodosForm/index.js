@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { saveTodoIds, getSavedTodosIds  } from "../../utils/localStorage"
+import React, { useState } from "react";
 
 function TodoForm(props) {
   const [input, setInput] = useState("");
 
   let [importance, setImportance] = useState("");
   const importanceLevel = ["high", "medium", "low"];
-  const [savedTodoIds, setSavedTodoIds] = useState(getSavedTodosIds())
-
-  useEffect(()=>{
-    return ()=>saveTodoIds(savedTodoIds)
-  })
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -24,7 +19,7 @@ function TodoForm(props) {
   
       }
     props.onSubmit(todo);
-    setSavedTodoIds(todo);
+    
 
     setInput("");
     setImportance("");

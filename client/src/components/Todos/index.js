@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import TodoForm from '../TodosForm';
 import TodoBucket from '../TodoBucket';
+import { saveTodoIds, getSavedTodosIds  } from "../../utils/localStorage"
 
 function TodoList() {
   const [todo, setTodo] = useState([]);
+  const [savedTodoIds, setSavedTodoIds] = useState(getSavedTodosIds())
+
+  useEffect(()=>{
+    return ()=>saveTodoIds(savedTodoIds)
+  });
 
   const addTodo = (item) => {
     console.log(item);
@@ -12,6 +18,7 @@ function TodoList() {
     }
     const newBucket = [item, ...todo];
     console.log(newBucket);
+    setSavedTodoIds(newBucket);
 
     setTodo(newBucket);    
   };
