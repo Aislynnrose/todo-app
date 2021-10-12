@@ -1,29 +1,33 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from "react";
+import { saveTodoIds, getSavedTodosIds  } from "../../utils/localStorage"
 
 function TodoForm(props) {
-  const [input, setInput] = useState('');
-  
+  const [input, setInput] = useState("");
 
-  let [importance, setImportance] = useState('');
-  const importanceLevel = ['high', 'medium', 'low']
-  
+  let [importance, setImportance] = useState("");
+  const importanceLevel = ["high", "medium", "low"];
+  const [savedTodoIds, setSavedTodoIds] = useState(getSavedTodosIds())
 
+  useEffect(()=>{
+    return ()=>saveTodoIds(savedTodoIds)
+  })
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!importance) {
-      importance = 'low';
+      importance = "low";
     }
+ const todo = {
+        id: Math.random(Math.floor() * 1000),
+        text: input,
+        importance: importance,
+  
+      }
+    props.onSubmit(todo);
+    setSavedTodoIds(todo);
 
-    props.onSubmit({
-      id: Math.random(Math.floor() * 1000),
-      text: input,
-      importance: importance,
-    });
-
-    setInput('');
-    setImportance('');
+    setInput("");
+    setImportance("");
   };
 
   const handleChange = (e) => {
@@ -43,17 +47,22 @@ function TodoForm(props) {
         ></input>
         <div className="dropdown">
           <button className={`dropbtn ${importance}`}>
-            {importance || 'Priority'}
+            {importance || "Priority"}
           </button>
           <div className="dropdown-content">
-            <p onClick={()=>setImportance(importanceLevel[0])}>High Priority</p>
-            <p onClick={()=>setImportance(importanceLevel[1])}>Medium Priority</p>
-            <p onClick={()=>setImportance(importanceLevel[2])}>Low Priority</p>
+            <p onClick={() => setImportance(importanceLevel[0])}>
+              High Priority
+            </p>
+            <p onClick={() => setImportance(importanceLevel[1])}>
+              Medium Priority
+            </p>
+            <p onClick={() => setImportance(importanceLevel[2])}>
+              Low Priority
+            </p>
           </div>
         </div>
         <button className="bucket-button">Add todo list item</button>
       </form>
-    
     </div>
   ) : (
     <div>
@@ -69,12 +78,18 @@ function TodoForm(props) {
         ></input>
         <div className="dropdown">
           <button className={`dropbtn ${importance}`}>
-            {importance || 'Priority'}
+            {importance || "Priority"}
           </button>
           <div className="dropdown-content">
-            <p onClick={()=>setImportance(importanceLevel[0])}>High Priority</p>
-            <p onClick={()=>setImportance(importanceLevel[1])}>Medium Priority</p>
-            <p onClick={()=>setImportance(importanceLevel[2])}>Low Priority</p>
+            <p onClick={() => setImportance(importanceLevel[0])}>
+              High Priority
+            </p>
+            <p onClick={() => setImportance(importanceLevel[1])}>
+              Medium Priority
+            </p>
+            <p onClick={() => setImportance(importanceLevel[2])}>
+              Low Priority
+            </p>
           </div>
         </div>
         <button className="bucket-button">Update</button>

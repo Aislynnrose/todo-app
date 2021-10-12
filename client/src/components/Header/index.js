@@ -13,18 +13,18 @@ const Header = () => {
       <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
         <Link className="text-dark" to="/">
           <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            I am an H1
+            Todo List
           </h1>
         </Link>
         <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          I am a P tag
+          Get more done with your todo list!
         </p>
         <div>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-primary m-2" to="/Todos">
+              {/* <Link className="btn btn-lg btn-primary m-2" to="/Todos">
                 View My Todos
-              </Link>
+              </Link> */}
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
