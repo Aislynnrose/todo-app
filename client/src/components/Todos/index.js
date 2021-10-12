@@ -23,6 +23,8 @@ function TodoList() {
     setTodo(newBucket);    
   };
 
+  getSavedTodosIds();
+  
   // Function to mark bucket list item as complete
   const completeTodo = (id) => {
     // If the ID passed to this function matches the ID of the item that was clicked, mark it as complete

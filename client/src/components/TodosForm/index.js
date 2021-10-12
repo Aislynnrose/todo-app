@@ -5,21 +5,19 @@ function TodoForm(props) {
 
   let [importance, setImportance] = useState("");
   const importanceLevel = ["high", "medium", "low"];
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!importance) {
       importance = "low";
     }
- const todo = {
-        id: Math.random(Math.floor() * 1000),
-        text: input,
-        importance: importance,
-  
-      }
+    const todo = {
+      id: Math.random(Math.floor() * 1000),
+      text: input,
+      importance: importance,
+    };
     props.onSubmit(todo);
-    
 
     setInput("");
     setImportance("");
@@ -31,13 +29,13 @@ function TodoForm(props) {
 
   return !props.edit ? (
     <div>
-      <form className="bucket-form" onSubmit={handleSubmit}>
+      <form className="todo-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Add to your todo list"
           value={input}
           name="text"
-          className="bucket-input"
+          className="todo-input"
           onChange={handleChange}
         ></input>
         <div className="dropdown">
@@ -56,19 +54,19 @@ function TodoForm(props) {
             </p>
           </div>
         </div>
-        <button className="bucket-button">Add todo list item</button>
+        <button className="todo-button">Add todo list item</button>
       </form>
     </div>
   ) : (
     <div>
       <h3>Update todo item: {props.edit.value}</h3>
-      <form className="bucket-form" onSubmit={handleSubmit}>
+      <form className="todo-form" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder={props.edit.value}
           value={input}
           name="text"
-          className="bucket-input"
+          className="todo-input"
           onChange={handleChange}
         ></input>
         <div className="dropdown">
@@ -87,7 +85,7 @@ function TodoForm(props) {
             </p>
           </div>
         </div>
-        <button className="bucket-button">Update</button>
+        <button className="todo-button">Update</button>
       </form>
     </div>
   );

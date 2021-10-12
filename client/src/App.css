@@ -10,19 +10,6 @@ body {
   background-color: whitesmoke;
 }
 
-.bucket-app {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 900px;
-  min-height: 600px;
-  background: #D3C4D1;
-  text-align: center;
-  margin: 32px auto;
-  border-radius: 20px;
-  padding-bottom: 32px;
-}
-
 h1 {
   margin: 32px 0;
   color: #820263;
@@ -40,11 +27,11 @@ h3 {
   opacity: 0.4;
 }
 
-.bucket-form {
+.todo-form {
   margin-bottom: 32px;
 }
 
-.bucket-input {
+.todo-input {
   padding: 14px 32px 14px 16px;
   border-radius: 4px;
   border: 2px solid #028090;
@@ -54,11 +41,11 @@ h3 {
   color: #820263;
 }
 
-.bucket-input::placeholder {
+.todo-input::placeholder {
   color: #820263;
 }
 
-.bucket-button {
+.todo-button {
   padding: 16px;
   border: none;
   border-radius: 4px;
@@ -69,22 +56,16 @@ h3 {
   text-transform: capitalize;
 }
 
-.bucket-input.edit {
+.todo-input.edit {
   border: 2px solid #028090;
 }
 
-.bucket-button.edit {
+.todo-button.edit {
   background: #028090;
   padding: 16px 22px;
 }
 
-.bucket-container {
-  display: flex;
-  flex-direction: row;
-  position: relative;
-}
-
-.bucket-row {
+.todo-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
