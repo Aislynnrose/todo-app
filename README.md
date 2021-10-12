@@ -18,9 +18,9 @@ SO THAT I can keep track of them in one place and complete them when they are do
 
 ## User experience
 
-*Users are able to login to their account and create a todo list
-*Users can add, complete, update and delete their todos
-*Users can color code their todos based on priority
+* Users are able to login to their account and create a todo list
+* Users can add, complete, update and delete their todos
+* Users can color code their todos based on priority
 
 ## Technologies Used
 
