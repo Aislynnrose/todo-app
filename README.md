@@ -12,6 +12,9 @@ SO THAT I can keep track of them in one place and complete them when they are do
 ```
 
 ## _Github URL:_ https://github.com/Aislynnrose/todo-app
+## ![Todo Video](./client/public/ezgif.com-gif-maker.gif)
+
+
 
 ## User experience
 
