@@ -12,12 +12,12 @@ function TodoBucket(props) {
 
   const submitUpdate = (value) => {
     
-    props.editBucketItem(edit.id, value);
+    props.editTodoItem(edit.id, value);
     setEdit({ id: null, value: '', importance: '' });
     };
 
   if (edit.id) {
-    // return <TodoForm edit={edit} onSubmit={submitUpdate} />;
+    return <TodoForm edit={edit} onSubmit={submitUpdate} />;
   }
 
   return props.todo.map((item, i) => (
@@ -30,13 +30,13 @@ function TodoBucket(props) {
           : `bucket-row ${item.importance}`
       }
       key={i}>
-      <div key={item.id} onClick={() => props.completeBucketItem(item.id)}>
+      <div key={item.id} onClick={() => props.completeTodo(item.id)}>
         {item.text}
       </div>
       <div className="icons">
       {console.log(item)}
         <p onClick={() => setEdit({ id: item.id, value: item.text, importance: item.importance })}> ✏️</p>
-        <p onClick={() => props.removeBucketItem(item.id)}> 🗑️</p>
+        <p onClick={() => props.removeTodo(item.id)}> 🗑️</p>
       </div>
     </div>
   ));
